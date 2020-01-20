@@ -1,19 +1,23 @@
 const input = document.getElementById('pass');
 
-const password = 'user';
-const message = 'wyjechałem essa';
+const passwords = ['user', 'wiosna', 'ania'];
+const messages = ['wyjechałem essa', 'piękna pora roku', 'fajny styl masz'];
 const div = document.querySelector('.message')
 
 input.addEventListener('input', (e) => {
-    console.log(e.target.value);
-    console.log(this.value);
-    // if( password === e.target.value ) {
-    //     div.textContent = message;
-    //     e.target.value = '';
-    // }
-    // else {
-    //     div.textContent = '';
-    // }
+    div.textContent = '';
+    // console.log(e.target.value);
+    // console.log(this.value);
+    const text = e.target.value;
+    // console.log(text);
+
+    passwords.forEach( (password, index) => {
+        if(password === text) {
+            // console.log(password, index)
+            div.textContent = messages[index];
+            e.target.value = '';
+        }
+    });
 });
 
 input.addEventListener('focus', (e) => {
@@ -23,3 +27,11 @@ input.addEventListener('focus', (e) => {
 input.addEventListener('blur', (e) => {
     e.target.classList.remove('active');
 });
+
+   // if( password === e.target.value ) {
+    //     div.textContent = message;
+    //     e.target.value = '';
+    // }
+    // else {
+    //     div.textContent = '';
+    // }
